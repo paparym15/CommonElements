@@ -10,10 +10,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        FirebaseMessaging.getInstance().subscribeToTopic("updates")
-
-        if (intent.action == "second_activity") {
-            startActivity(Intent(this, SecondActivity::class.java))
-        }
     }
 }
