@@ -2,6 +2,12 @@ package com.one.testnotifications
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.BackpressureStrategy
+import io.reactivex.rxjava3.core.Flowable
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Scheduler
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
@@ -13,7 +19,15 @@ class MainViewModel : ViewModel() {
 
     init {
 //        testingFlowConcat()
-        testConflate()
+//        testConflate()
+
+        rxDataSource()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                Thread.sleep(4000)
+                println("printed: $it")
+            }
     }
 
     private fun testingFlowConcat() {
@@ -46,4 +60,12 @@ class MainViewModel : ViewModel() {
             }
         }
     }
+
+    fun rxDataSource() = Observable.create<Int>() { subscriber ->
+            for (i in 0..100) {
+                Thread.sleep(3000)
+                subscriber.onNext(i)
+            }
+        }
+
 }
