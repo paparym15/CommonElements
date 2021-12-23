@@ -4,9 +4,9 @@ import com.one.testnotifications.MainViewModel
 import dagger.Binds
 import dagger.Module
 
-@Module
-interface ViewModelModule {
-
-    @Binds
-    fun bindsMainViewModel(mainViewModel: MainViewModel)
-}
+//@Module
+//interface ViewModelModule {
+//
+//    @Binds
+//    fun bindsMainViewModel(mainViewModel: MainViewModel)
+//}
