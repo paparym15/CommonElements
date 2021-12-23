@@ -14,16 +14,12 @@ import kotlin.collections.HashMap
 
 class MainActivity : AppCompatActivity() {
 
-//    @Inject lateinit var viewModel: MainViewModel
-    @Inject lateinit var userRepository: UserRepository
+    @Inject lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         (application as App).component.inject(this)
 
-        lifecycleScope.launch {
-            userRepository.callAndStore()
-        }
     }
 }
