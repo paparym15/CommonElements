@@ -8,7 +8,7 @@ class UserRepositoryImpl @Inject constructor(
     private val localDataSource: LocalDataSource,
     private val remoteDataSource: RemoteDataSource): UserRepository {
 
-        override fun callAndStore() {
+        override suspend fun callAndStore() {
             remoteDataSource.remoteCall()
             localDataSource.storeLocally()
         }

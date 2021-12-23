@@ -1,6 +1,8 @@
 package com.one.testnotifications.di.components
 
+import android.app.Application
 import android.content.Context
+import com.one.testnotifications.MainActivity
 import com.one.testnotifications.di.modules.RepositoryModule
 import com.one.testnotifications.repositories.UserRepository
 import dagger.BindsInstance
@@ -11,11 +13,11 @@ import javax.inject.Singleton
 @Component(modules = [RepositoryModule::class])
 interface ApplicationComponent {
 
-    fun repository(): UserRepository
+    fun inject(mainActivity: MainActivity)
 
     @Component.Builder
     interface Builder {
-        @BindsInstance fun applicationContext(applicationContext: Context): Builder
+        @BindsInstance fun application(application: Application): Builder
 
         fun build(): ApplicationComponent
     }
