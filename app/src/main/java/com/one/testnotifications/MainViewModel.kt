@@ -14,7 +14,6 @@ class MainViewModel @Inject constructor(private val userRepository: UserReposito
 
      private fun initialCall() {
         viewModelScope.launch {
-            println("printed: ${this@MainViewModel}")
             userRepository.callAndStore()
         }
     }
