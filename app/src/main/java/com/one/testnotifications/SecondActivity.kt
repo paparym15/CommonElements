@@ -18,6 +18,7 @@ class SecondActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        SingletonObject.unregister(listener)
     }
 
     private inner class Listener : GlobalSingletonListener {
