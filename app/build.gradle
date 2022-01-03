@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdk 31
@@ -65,4 +66,15 @@ dependencies {
 
     // optional - Multiprocess support
     implementation "androidx.work:work-multiprocess:$work_version"
+
+    //ktx android
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.fragment:fragment-ktx:1.4.0'
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.activity:activity-ktx:1.4.0"
+
+    def lifecycle_version = "2.0.0"
+
+    implementation  "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    kapt  "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 }

@@ -2,16 +2,15 @@ package com.one.testnotifications
 
 import android.content.Context
 import android.util.Log
-import androidx.work.Worker
+import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import java.lang.Exception
 
-class ExampleWorker(context: Context, params: WorkerParameters) : Worker(context, params) {
+class DownloadingWorker(context: Context, params: WorkerParameters) : CoroutineWorker(context, params) {
 
-    override fun doWork(): Result {
+    override suspend fun doWork(): Result {
         return try {
             for (i in 1..10) {
-                Log.d("-->", "$i")
+                Log.d("-->", "Downloading $i + ${Thread.currentThread()}")
             }
             Result.success()
         } catch (e: Exception) {
