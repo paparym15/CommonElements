@@ -7,6 +7,7 @@ import io.reactivex.rxjava3.internal.subscriptions.SubscriptionHelper.cancel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import java.lang.Exception
+import java.math.BigInteger
 
 @FlowPreview
 class MainViewModel : ViewModel() {
@@ -14,8 +15,6 @@ class MainViewModel : ViewModel() {
     val testScope = CoroutineScope(Dispatchers.IO)
 
     init {
-//        cancellableEg()
-//        debugCoroutine()
 
     }
 
