@@ -1,10 +1,11 @@
 package com.one.testnotifications.domain.usecases
 
 import com.one.testnotifications.domain.models.User
+import com.one.testnotifications.domain.repository.UserRepository
 
-class GetUserUseCase {
+class GetUserUseCase(val repository: UserRepository) {
 
     fun execute(): User {
-        return User("first", "last", 18)
+        return repository.getUser()
     }
 }

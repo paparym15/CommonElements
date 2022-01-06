@@ -1,8 +1,10 @@
 package com.one.testnotifications.domain.usecases
 
-class SendUserUseCase {
+import com.one.testnotifications.domain.repository.UserRepository
+
+class SendUserUseCase(val userRepository: UserRepository) {
 
     fun execute(): Boolean {
-        return true
+        return userRepository.saveUser()
     }
 }
