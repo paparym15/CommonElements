@@ -13,16 +13,6 @@ import dagger.Provides
 class DomainModule {
 
     @Provides
-    fun provideGetUserUseCase(userRepository: UserRepository): GetUserUseCase {
-        return GetUserUseCase(repository = userRepository)
-    }
-
-    @Provides
-    fun provideSendUserUseCase(userRepository: UserRepository): SendUserUseCase {
-        return SendUserUseCase(userRepository = userRepository)
-    }
-
-    @Provides
     fun provideUserRepository(
         userLocalDataSource: UserLocalDataSource,
         remoteDataSource: UserRemoteDataSource

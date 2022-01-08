@@ -5,7 +5,7 @@ import com.one.testnotifications.data.datasource.remote.UserRemoteDataSource
 import com.one.testnotifications.domain.models.User
 import com.one.testnotifications.domain.repository.UserRepository
 
-class UserRepositoryImpl(
+class UserRepositoryImpl (
     private val localDataSource: UserLocalDataSource,
     private val remoteDataSource: UserRemoteDataSource
 ): UserRepository {
