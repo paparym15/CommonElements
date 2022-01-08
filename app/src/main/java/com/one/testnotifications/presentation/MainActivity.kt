@@ -1,24 +1,27 @@
 package com.one.testnotifications.presentation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.one.testnotifications.R
-import com.one.testnotifications.data.datasource.local.UserLocalDataSourceImpl
-import com.one.testnotifications.data.datasource.remote.UserRemoteDataSourceImpl
-import com.one.testnotifications.data.repository.UserRepositoryImpl
-import com.one.testnotifications.domain.usecases.GetUserUseCase
-import com.one.testnotifications.domain.usecases.SendUserUseCase
+import com.one.testnotifications.app.App
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var vmFactory: MainViewModelFactory
+    @Inject
+    lateinit var vmFactory: MainViewModelFactory
     private lateinit var vm: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        (application as App).appComponent.inject(this)
+
+        Log.d("-->", "activity created")
 
         vm = ViewModelProvider(this, vmFactory).get(
             MainViewModel::class.java

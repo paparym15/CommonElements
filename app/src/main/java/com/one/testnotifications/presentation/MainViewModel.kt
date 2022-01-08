@@ -1,5 +1,6 @@
 package com.one.testnotifications.presentation
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.one.testnotifications.domain.models.User
@@ -11,6 +12,10 @@ class MainViewModel(
     private val sendUserUseCase: SendUserUseCase
 ): ViewModel() {
 
+    init {
+        Log.d("-->", "vm created")
+    }
+
     val userLD = MutableLiveData<User>()
     val resultLD = MutableLiveData<Boolean>()
 
@@ -20,5 +25,10 @@ class MainViewModel(
 
     fun sendData() {
         resultLD.value = sendUserUseCase.execute()
+    }
+
+    override fun onCleared() {
+        Log.d("-->", "vm killed")
+        super.onCleared()
     }
 }
