@@ -28,6 +28,11 @@
             </intent-filter>
         </activity>
 
+        <service android:name=".MyBackgroundService"
+            android:exported="false"/>
+
+        <receiver android:name=".MyReceiver"/>
+
     </application>
 
 </manifest>
