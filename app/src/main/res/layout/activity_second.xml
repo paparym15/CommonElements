@@ -8,7 +8,6 @@
 
     <EditText
         android:id="@+id/tv"
-        android:textSize="40sp"
         android:text="empty"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
