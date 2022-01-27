@@ -1,16 +1,15 @@
 package com.one.testnotifications
 
-import android.app.ActivityManager
 import android.content.Intent
-import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class FourthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_fourth)
+
 
         btn1.setOnClickListener {
             val i = Intent(this, MainActivity::class.java)
@@ -34,17 +33,5 @@ class MainActivity : AppCompatActivity() {
             val i = Intent(this, FifthActivity::class.java)
             startActivity(i)
         }
-
-        val manager = getSystemService(ACTIVITY_SERVICE) as ActivityManager
-
-        val item = manager.getRunningTasks(10).map {
-            it.numActivities
-        }
-
-    }
-
-    override fun onNewIntent(intent: Intent?) {
-        super.onNewIntent(intent)
-        Log.d("-->", "received")
     }
 }
